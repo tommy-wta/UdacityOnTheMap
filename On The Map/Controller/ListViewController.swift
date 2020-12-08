@@ -1,5 +1,5 @@
 //
-//  MapViewController.swift
+//  ListViewController.swift
 //  On The Map
 //
 //  Created by Tommy Lam on 12/8/20.
@@ -7,8 +7,7 @@
 
 import UIKit
 
-class MapViewController: UIViewController {
-
+class ListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,4 +39,5 @@ class MapViewController: UIViewController {
 
     @IBAction func refreshAction(_ sender: Any) {
     }
+    
 }

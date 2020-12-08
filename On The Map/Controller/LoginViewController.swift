@@ -38,7 +38,7 @@ class LoginViewController: UIViewController {
             //self.performSegue(withIdentifier: "loggedIn", sender: nil)
             loginActionInProgress(status: false)
             let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MapVC") as UIViewController
-
+            viewController.modalPresentationStyle = .fullScreen
             self.present(viewController, animated: false, completion: nil)
 
         } else {
