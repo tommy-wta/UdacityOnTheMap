@@ -44,10 +44,16 @@ class UdacityAPI {
             if let response = completionResponse {
                 Auth.key = response.account.key
                 print("Auth Key")
-                print(Auth.key)
+                //print(Auth.key)
                 Auth.sessionId = response.session.id
                 print("Auth Session")
-                print(Auth.sessionId)
+                //print(Auth.sessionId)
+                gettingUserData(completion: {(success, error) in
+                    if success {
+                        print("User data fetched")
+                        print(Auth.firstName + " " + Auth.lastName)
+                    }
+                })
                 completion(true,nil)
             } else {
                 completion(false,error)
@@ -56,9 +62,22 @@ class UdacityAPI {
     }
 
     class func gettingUserData(completion: @escaping (Bool, Error?)->Void) {
-
+        getRequestTask(url: Endpoints.getPublicUserData.url, responseType: UserData.self, completion: {(completionResponse, error) in
+            if let response = completionResponse {
+                print("Response: ")
+                print(response)
+                Auth.firstName = response.firstName
+                Auth.lastName = response.lastName
+                completion(true, nil)
+            } else {
+                print("Failed to get user's profile.")
+                completion(false, error)
+            }
+        })
     }
 
+
+    // LOGOUT
     class func logout(completion: @escaping () -> Void) {
         var request = URLRequest(url: Endpoints.postAndDelete.url)
         request.httpMethod = "DELETE"
@@ -86,6 +105,8 @@ class UdacityAPI {
         task.resume()
     }
 
+
+    // GET/POST REQUEST TASKS
     class func getRequestTask<ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
