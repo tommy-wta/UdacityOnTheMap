@@ -9,6 +9,8 @@ import UIKit
 
 class MapViewController: UIViewController {
 
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,5 +27,15 @@ class MapViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
+    @IBAction func logoutAction(_ sender: Any) {
+        UdacityAPI.logout {
+            DispatchQueue.main.async {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+
+    }
+
 
 }
