@@ -34,11 +34,9 @@ class LoginViewController: UIViewController {
     func handleLoginCompletion(success: Bool, error: Error?) {
         if success {
             print("Login Success")
-            //perform segue
-            //self.performSegue(withIdentifier: "loggedIn", sender: nil)
             loginActionInProgress(status: false)
             let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MapVC") as UIViewController
-
+            viewController.modalPresentationStyle = .fullScreen
             self.present(viewController, animated: false, completion: nil)
 
         } else {

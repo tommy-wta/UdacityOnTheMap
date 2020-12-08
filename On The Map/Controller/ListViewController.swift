@@ -1,16 +1,13 @@
 //
-//  MapViewController.swift
+//  ListViewController.swift
 //  On The Map
 //
 //  Created by Tommy Lam on 12/8/20.
 //
 
 import UIKit
-import MapKit
 
-class MapViewController: UIViewController, MKMapViewDelegate {
-
-    @IBOutlet weak var mapView: MKMapView!
+class ListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,4 +39,5 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 
     @IBAction func refreshAction(_ sender: Any) {
     }
+    
 }

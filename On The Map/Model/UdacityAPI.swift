@@ -55,6 +55,10 @@ class UdacityAPI {
         })
     }
 
+    class func gettingUserData(completion: @escaping (Bool, Error?)->Void) {
+
+    }
+
     class func logout(completion: @escaping () -> Void) {
         var request = URLRequest(url: Endpoints.postAndDelete.url)
         request.httpMethod = "DELETE"
@@ -78,6 +82,39 @@ class UdacityAPI {
             print(String(data: newData!, encoding: .utf8)!)
             Auth.sessionId = ""
             completion()
+        }
+        task.resume()
+    }
+
+    class func getRequestTask<ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) {
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { data, response, error in
+            if error != nil {
+                completion(nil, error)
+            }
+            guard let data = data else {
+                DispatchQueue.main.async {
+                    completion(nil, error)
+                }
+                return
+            }
+            do {
+                let range = 5..<data.count
+                let newData = data.subdata(in: range)
+                let responseObject = try JSONDecoder().decode(ResponseType.self, from: newData)
+                DispatchQueue.main.async {
+                    completion(responseObject, nil)
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion(nil, error)
+                }
+            }
         }
         task.resume()
     }
