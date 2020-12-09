@@ -17,8 +17,16 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 
         // Do any additional setup after loading the view.
     }
-    
 
+    override func viewWillAppear(_ animated: Bool) {
+        // LocationDataReload
+    }
+
+    func locationDataReload() {
+        ParseAPI.getAllStudentLocations(completion: {(locations, errors)in
+
+        })
+    }
     /*
     // MARK: - Navigation
 
@@ -41,5 +49,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
 
     @IBAction func refreshAction(_ sender: Any) {
+        locationDataReload()
     }
 }

@@ -12,6 +12,8 @@ class ParseAPI {
     class func getAllStudentLocations(completion: @escaping ([StudentLocationData]?, Error?) -> Void) {
         ParseAPI.getRequestTask(url: UdacityAPI.Endpoints.getStudentLocation.url, responseType: AllLocations.self) { (completionResponse, error) in
             if let response = completionResponse {
+                print("results:")
+                print(response.results)
                 completion(response.results, nil)
             } else {
                 completion([], error)
