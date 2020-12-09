@@ -19,6 +19,11 @@
 		13686FF7257FE9C9009F91B2 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13686FF6257FE9C9009F91B2 /* MapViewController.swift */; };
 		13686FFA258011A3009F91B2 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13686FF9258011A3009F91B2 /* ListViewController.swift */; };
 		13686FFF2580222A009F91B2 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13686FFE2580222A009F91B2 /* UserData.swift */; };
+		1368700225808176009F91B2 /* UpdateStudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1368700125808176009F91B2 /* UpdateStudentLocation.swift */; };
+		13687005258081BA009F91B2 /* PostNewStudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13687004258081BA009F91B2 /* PostNewStudentLocation.swift */; };
+		1368700825808264009F91B2 /* AllLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1368700725808264009F91B2 /* AllLocations.swift */; };
+		1368700C258082C5009F91B2 /* StudentLocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1368700B258082C5009F91B2 /* StudentLocationData.swift */; };
+		1368700F258083AF009F91B2 /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1368700E258083AF009F91B2 /* StudentLocation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +41,11 @@
 		13686FF6257FE9C9009F91B2 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		13686FF9258011A3009F91B2 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		13686FFE2580222A009F91B2 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		1368700125808176009F91B2 /* UpdateStudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateStudentLocation.swift; sourceTree = "<group>"; };
+		13687004258081BA009F91B2 /* PostNewStudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNewStudentLocation.swift; sourceTree = "<group>"; };
+		1368700725808264009F91B2 /* AllLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllLocations.swift; sourceTree = "<group>"; };
+		1368700B258082C5009F91B2 /* StudentLocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationData.swift; sourceTree = "<group>"; };
+		1368700E258083AF009F91B2 /* StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +123,11 @@
 				13686FEA257FDC29009F91B2 /* LoginResponse.swift */,
 				13686FEE257FDCDB009F91B2 /* Session.swift */,
 				13686FFE2580222A009F91B2 /* UserData.swift */,
+				1368700125808176009F91B2 /* UpdateStudentLocation.swift */,
+				13687004258081BA009F91B2 /* PostNewStudentLocation.swift */,
+				1368700725808264009F91B2 /* AllLocations.swift */,
+				1368700B258082C5009F91B2 /* StudentLocationData.swift */,
+				1368700E258083AF009F91B2 /* StudentLocation.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -187,14 +202,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1368700C258082C5009F91B2 /* StudentLocationData.swift in Sources */,
 				13686FEF257FDCDB009F91B2 /* Session.swift in Sources */,
+				1368700F258083AF009F91B2 /* StudentLocation.swift in Sources */,
+				13687005258081BA009F91B2 /* PostNewStudentLocation.swift in Sources */,
 				13686FE1257FC9D8009F91B2 /* UdacityAPI.swift in Sources */,
 				13686FCD257FC8FE009F91B2 /* LoginViewController.swift in Sources */,
 				13686FFF2580222A009F91B2 /* UserData.swift in Sources */,
 				13686FEB257FDC29009F91B2 /* LoginResponse.swift in Sources */,
 				13686FC9257FC8FE009F91B2 /* AppDelegate.swift in Sources */,
 				13686FCB257FC8FE009F91B2 /* SceneDelegate.swift in Sources */,
+				1368700225808176009F91B2 /* UpdateStudentLocation.swift in Sources */,
 				13686FFA258011A3009F91B2 /* ListViewController.swift in Sources */,
+				1368700825808264009F91B2 /* AllLocations.swift in Sources */,
 				13686FF7257FE9C9009F91B2 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
