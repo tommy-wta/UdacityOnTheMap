@@ -24,12 +24,18 @@ class UdacityAPI {
         case postAndDelete
         case getPublicUserData
         case signUpUrl
+        case addNewLocation
+        case updateLocation
+        case getStudentLocation
 
         var stringValue : String {
             switch self {
             case .postAndDelete: return Endpoints.base + "/session"
             case .getPublicUserData: return Endpoints.base + "/users/" + Auth.key
             case .signUpUrl: return "https://auth.udacity.com/sign-up"
+            case .addNewLocation: return Endpoints.base + "/StudentLocation"
+            case .updateLocation: return Endpoints.base + "/StudentLocation/" + Auth.objectId
+            case .getStudentLocation: return Endpoints.base + "/StudentLocation?limit=10&order=-updatedAt"
             }
         }
         var url: URL {
