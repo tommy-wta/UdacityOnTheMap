@@ -24,6 +24,7 @@
 		1368700825808264009F91B2 /* AllLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1368700725808264009F91B2 /* AllLocations.swift */; };
 		1368700C258082C5009F91B2 /* StudentLocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1368700B258082C5009F91B2 /* StudentLocationData.swift */; };
 		1368700F258083AF009F91B2 /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1368700E258083AF009F91B2 /* StudentLocation.swift */; };
+		13687014258086EC009F91B2 /* ParseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13687013258086EC009F91B2 /* ParseAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		1368700725808264009F91B2 /* AllLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllLocations.swift; sourceTree = "<group>"; };
 		1368700B258082C5009F91B2 /* StudentLocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationData.swift; sourceTree = "<group>"; };
 		1368700E258083AF009F91B2 /* StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
+		13687013258086EC009F91B2 /* ParseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				13686FE0257FC9D8009F91B2 /* UdacityAPI.swift */,
+				13687013258086EC009F91B2 /* ParseAPI.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				13686FEB257FDC29009F91B2 /* LoginResponse.swift in Sources */,
 				13686FC9257FC8FE009F91B2 /* AppDelegate.swift in Sources */,
 				13686FCB257FC8FE009F91B2 /* SceneDelegate.swift in Sources */,
+				13687014258086EC009F91B2 /* ParseAPI.swift in Sources */,
 				1368700225808176009F91B2 /* UpdateStudentLocation.swift in Sources */,
 				13686FFA258011A3009F91B2 /* ListViewController.swift in Sources */,
 				1368700825808264009F91B2 /* AllLocations.swift in Sources */,

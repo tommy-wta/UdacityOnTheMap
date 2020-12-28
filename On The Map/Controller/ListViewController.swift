@@ -23,7 +23,7 @@ class ListViewController: UIViewController {
         tableView.dataSource = self
         // Do any additional setup after loading the view.
     }
-    
+
     func getStudentInfo() {
         UdacityAPI.getStudentLocationUsingUrl() {(returnedStudentList, error) in
             self.listOfStudentInfo = returnedStudentList ?? []
