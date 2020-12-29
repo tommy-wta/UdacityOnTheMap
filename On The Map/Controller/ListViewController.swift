@@ -25,7 +25,7 @@ class ListViewController: UIViewController {
     }
 
     func getStudentInfo() {
-        UdacityAPI.getStudentLocationUsingUrl() {(returnedStudentList, error) in
+        ParseAPI.getStudentLocationUsingUrl() {(returnedStudentList, error) in
             self.listOfStudentInfo = returnedStudentList ?? []
             DispatchQueue.main.async {
                 self.tableView.reloadData()

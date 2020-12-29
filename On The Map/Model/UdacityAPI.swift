@@ -108,49 +108,6 @@ class UdacityAPI {
         task.resume()
     }
 
-    // Getting student locations for list
-    class func getStudentLocationUsingUrl(completion: @escaping([StudentLocationData]?, Error?) -> Void) {
-        getParseRequestTask(url: Endpoints.studentLocationUrl.url, responseType: AllLocations.self) { (completionData, error) in
-            if let locationData = completionData {
-                //print("location data output: " + String(locationData.results.count))
-                //print(locationData.results)
-                completion(locationData.results, nil)
-            } else {
-                //print("Get location failed")
-                completion([], error)
-            }
-        }
-    }
-
-    // GET PARSE TASKS
-    class func getParseRequestTask<ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) {
-        var request = URLRequest(url: url)
-        
-        let session = URLSession.shared
-        let task = session.dataTask(with: request) { data, response, error in
-            if error != nil { // Handle error...
-                completion(nil, error)
-            }
-            guard let data = data else {
-                DispatchQueue.main.async {
-                    completion(nil, error)
-                }
-                return
-            }
-            do {
-                let responseObject = try JSONDecoder().decode(ResponseType.self, from: data)
-                DispatchQueue.main.async {
-                    completion(responseObject, nil)
-                }
-            } catch {
-                DispatchQueue.main.async {
-                    completion(nil, error)
-                }
-            }
-        }
-        task.resume()
-    }
-
     // GET/POST REQUEST UDACITY TASKS
     class func getRequestTask<ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) {
         var request = URLRequest(url: url)
