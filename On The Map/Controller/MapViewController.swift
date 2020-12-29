@@ -10,6 +10,8 @@ import MapKit
 
 class MapViewController: UIViewController, MKMapViewDelegate {
 
+    var listOfStudentInfo = [StudentLocationData]()
+
     @IBOutlet weak var mapView: MKMapView!
 
     override func viewDidLoad() {
@@ -23,9 +25,16 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
 
     func locationDataReload() {
-        ParseAPI.getAllStudentLocations(completion: {(locations, errors)in
+        getStudentInfo()
+    }
 
-        })
+    func getStudentInfo() {
+        ParseAPI.getStudentLocationUsingUrl() {(returnedStudentList, error) in
+            self.listOfStudentInfo = returnedStudentList ?? []
+            DispatchQueue.main.async {
+                //self.tableView.reloadData()
+            }
+        }
     }
     /*
     // MARK: - Navigation
