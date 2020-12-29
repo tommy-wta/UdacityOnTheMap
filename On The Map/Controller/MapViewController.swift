@@ -19,7 +19,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
-        
+
         // Do any additional setup after loading the view.
     }
 
@@ -83,7 +83,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         if annotationView == nil {
             annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             annotationView!.canShowCallout = true
-            annotationView!.tintColor = .red
+            annotationView!.tintColor = .blue
             annotationView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         } else {
             annotationView!.annotation = annotation
