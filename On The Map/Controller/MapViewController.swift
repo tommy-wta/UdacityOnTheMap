@@ -24,12 +24,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        locationDataReload()
-
-    }
-
-    func locationDataReload() {
         getStudentInfo()
+
     }
 
     func getStudentInfo() {
@@ -71,7 +67,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
 
     @IBAction func refreshAction(_ sender: Any) {
-        locationDataReload()
+        getStudentInfo()
     }
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
