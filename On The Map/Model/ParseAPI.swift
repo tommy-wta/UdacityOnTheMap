@@ -22,32 +22,19 @@ class ParseAPI {
         }
     }
 
-//    class func addNewLocation(locationData: StudentLocationData, completion: @escaping (Bool, Error?) -> Void) {
-//        let body = "{\"uniqueKey\": \"\(locationData.uniqueKey ?? "")\", \"firstName\": \"\(locationData.firstName)\", \"lastName\": \"\(locationData.lastName)\",\"mapString\": \"\(locationData.mapString)\", \"mediaURL\": \"\(locationData.mediaURL)\",\"latitude\": \(locationData.latitude), \"longitude\": \(locationData.longitude)}"
-//        ParseAPI.postRequestTask(url: UdacityAPI.Endpoints.addNewLocation.url, responseType: PostNewStudentLocation.self, body: body, completion: {(completionResponse, error) in
-//            if let response = completionResponse {
-//                if response.createdAt != nil {
-//                    UdacityAPI.Auth.objectId = response.objectId ?? ""
-//                    completion(true, nil)
-//                } else {
-//                    completion(false, error)
-//                }
-//            }
-//        })
-//    }
-
-//    class func updateLocation(locationData: StudentLocationData, completion: @escaping (Bool, Error?) -> Void) {
-//        let body = "{\"uniqueKey\": \"\(locationData.uniqueKey ?? "")\", \"firstName\": \"\(locationData.firstName)\", \"lastName\": \"\(locationData.lastName)\",\"mapString\": \"\(locationData.mapString)\", \"mediaURL\": \"\(locationData.mediaURL)\",\"latitude\": \(locationData.latitude), \"longitude\": \(locationData.longitude)}"
-//        ParseAPI.postRequestTask(url: UdacityAPI.Endpoints.updateLocation.url, responseType: UpdateStudentLocation.self, body: body, completion: {(completionResponse, error) in
-//            if let response = completionResponse {
-//                if response.updateAt != nil {
-//                    completion(true, nil)
-//                } else {
-//                    completion(false, nil)
-//                }
-//            }
-//        })
-//    }
+    class func addNewLocation(locationData: StudentLocationData, completion: @escaping (Bool, Error?) -> Void) {
+        let body = "{\"uniqueKey\": \"\(locationData.uniqueKey ?? "")\", \"firstName\": \"\(locationData.firstName)\", \"lastName\": \"\(locationData.lastName)\",\"mapString\": \"\(locationData.mapString)\", \"mediaURL\": \"\(locationData.mediaURL)\",\"latitude\": \(locationData.latitude), \"longitude\": \(locationData.longitude)}"
+        ParseAPI.postRequestTask(url: UdacityAPI.Endpoints.addNewLocation.url, responseType: PostNewStudentLocation.self, body: body, completion: {(completionResponse, error) in
+            if let response = completionResponse {
+                if response.createdAt != nil {
+                    UdacityAPI.Auth.objectId = response.objectId ?? ""
+                    completion(true, nil)
+                } else {
+                    completion(false, error)
+                }
+            }
+        })
+    }
 
     class func getParseRequestTask<ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) {
         var request = URLRequest(url: url)
