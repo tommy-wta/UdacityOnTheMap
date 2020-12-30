@@ -6,26 +6,31 @@
 //
 
 import UIKit
+import MapKit
 
-class LocationConfirmationViewController: UIViewController {
+class LocationConfirmationViewController: UIViewController, MKMapViewDelegate  {
 
     var studentLocationInfo: StudentLocationData?
+    var mapCoordinate: CLLocationCoordinate2D?
+
+    @IBOutlet weak var mapView: MKMapView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        mapView.delegate = self
+        
         // Do any additional setup after loading the view.
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        var mapAnnotation = MKPointAnnotation()
+        mapAnnotation.coordinate = mapCoordinate!
+        mapAnnotation.title = "Selected Location"
+        self.mapView.addAnnotation(mapAnnotation)
+        self.mapView.reloadInputViews()
     }
-    */
+
+    @IBAction func confirmAction(_ sender: Any) {
+    }
 
 }

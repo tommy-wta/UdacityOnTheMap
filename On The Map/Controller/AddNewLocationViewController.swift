@@ -4,6 +4,7 @@
 //
 //  Created by Tommy Lam on 12/29/20.
 //
+// Used location tutorial: https://cocoacasts.com/forward-geocoding-with-clgeocoder
 
 import UIKit
 import MapKit
@@ -53,6 +54,7 @@ class AddNewLocationViewController: UIViewController {
         if segue.identifier == "performSearch" {
             let confirmationVC = segue.destination as! LocationConfirmationViewController
             confirmationVC.studentLocationInfo = createStudentLocationDataObject(studentCoordinate!)
+            confirmationVC.mapCoordinate = studentCoordinate
         }
     }
 

@@ -309,6 +309,9 @@
                                 <state key="normal" title="Confirm">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="confirmAction:" destination="yGJ-xU-phB" eventType="touchUpInside" id="yK8-II-IYI"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4w2-sr-2f8"/>
@@ -325,6 +328,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3jo-bv-r5N"/>
+                    <connections>
+                        <outlet property="mapView" destination="1Eh-xC-oXO" id="pEv-8c-tcE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6We-9R-dMa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
