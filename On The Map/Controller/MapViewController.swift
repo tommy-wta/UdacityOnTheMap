@@ -64,7 +64,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
 
     @IBAction func addNewLocationAction(_ sender: Any) {
+
     }
+
 
     @IBAction func refreshAction(_ sender: Any) {
         getStudentInfo()

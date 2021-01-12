@@ -25,6 +25,7 @@ class UdacityAPI {
         case getPublicUserData
         case signUpUrl
         case studentLocationUrl
+        case addNewLocation
 
         var stringValue : String {
             switch self {
@@ -32,6 +33,7 @@ class UdacityAPI {
             case .getPublicUserData: return Endpoints.base + "/users/" + Auth.key
             case .signUpUrl: return "https://auth.udacity.com/sign-up"
             case .studentLocationUrl: return Endpoints.base + "/StudentLocation?limit=10&order=-updatedAt"
+            case .addNewLocation : return Endpoints.base + "/StudentLocation"
             }
         }
         var url: URL {

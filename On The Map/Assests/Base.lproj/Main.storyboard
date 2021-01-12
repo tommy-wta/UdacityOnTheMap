@@ -214,40 +214,127 @@
             </objects>
             <point key="canvasLocation" x="1586.9565217391305" y="361.60714285714283"/>
         </scene>
-        <!--View Controller-->
+        <!--Add New Location View Controller-->
         <scene sceneID="8X7-IF-2z0">
             <objects>
-                <viewController id="je2-vG-ORs" sceneMemberID="viewController">
+                <viewController id="je2-vG-ORs" customClass="AddNewLocationViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PJs-GP-5BF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Location" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GE3-yM-vo4">
+                                <rect key="frame" x="20" y="321" width="374" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="1SJ-6s-Lbm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Web URL" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="viH-5Y-ksI">
+                                <rect key="frame" x="20" y="363" width="374" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="rkX-h6-uAQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aKQ-dE-1jd">
+                                <rect key="frame" x="20" y="405" width="374" height="34"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="gyV-An-XUM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchAction:" destination="je2-vG-ORs" eventType="touchUpInside" id="b73-5A-lbF"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_world" translatesAutoresizingMaskIntoConstraints="NO" id="Ni6-J8-7kk">
+                                <rect key="frame" x="143" y="185" width="128" height="128"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="tU7-Nj-GvV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="aKQ-dE-1jd" firstAttribute="top" secondItem="viH-5Y-ksI" secondAttribute="bottom" constant="8" id="3Ku-No-AKa"/>
+                            <constraint firstItem="GE3-yM-vo4" firstAttribute="leading" secondItem="PJs-GP-5BF" secondAttribute="leadingMargin" id="ANW-KU-qhY"/>
+                            <constraint firstItem="tU7-Nj-GvV" firstAttribute="bottom" secondItem="aKQ-dE-1jd" secondAttribute="bottom" constant="369" id="B2b-2x-aln"/>
+                            <constraint firstItem="viH-5Y-ksI" firstAttribute="top" secondItem="GE3-yM-vo4" secondAttribute="bottom" constant="8" id="JNR-Cc-kUY"/>
+                            <constraint firstItem="viH-5Y-ksI" firstAttribute="leading" secondItem="aKQ-dE-1jd" secondAttribute="leading" id="Tnc-Md-K9n"/>
+                            <constraint firstItem="GE3-yM-vo4" firstAttribute="trailing" secondItem="viH-5Y-ksI" secondAttribute="trailing" id="ZcE-lV-a4e"/>
+                            <constraint firstItem="GE3-yM-vo4" firstAttribute="leading" secondItem="viH-5Y-ksI" secondAttribute="leading" id="ceE-lG-ECm"/>
+                            <constraint firstItem="Ni6-J8-7kk" firstAttribute="leading" secondItem="tU7-Nj-GvV" secondAttribute="leading" constant="143" id="jD3-vv-S8Y"/>
+                            <constraint firstItem="GE3-yM-vo4" firstAttribute="top" secondItem="Ni6-J8-7kk" secondAttribute="bottom" constant="8" id="nFE-YE-tRS"/>
+                            <constraint firstItem="Ni6-J8-7kk" firstAttribute="centerX" secondItem="GE3-yM-vo4" secondAttribute="centerX" id="oBz-tP-o5C"/>
+                            <constraint firstItem="Ni6-J8-7kk" firstAttribute="top" secondItem="tU7-Nj-GvV" secondAttribute="top" constant="129" id="rl7-7s-GpL"/>
+                            <constraint firstItem="GE3-yM-vo4" firstAttribute="trailing" secondItem="PJs-GP-5BF" secondAttribute="trailingMargin" id="tgP-ky-pGC"/>
+                            <constraint firstItem="viH-5Y-ksI" firstAttribute="trailing" secondItem="aKQ-dE-1jd" secondAttribute="trailing" id="zHC-Co-sqQ"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="BA7-IP-KhT"/>
+                    <navigationItem key="navigationItem" id="BA7-IP-KhT">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="XIw-P4-WKz">
+                            <connections>
+                                <action selector="backAction:" destination="je2-vG-ORs" id="eLg-ty-YyD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <segue destination="yGJ-xU-phB" kind="show" id="3FY-6H-jZT"/>
+                        <outlet property="locationTextField" destination="GE3-yM-vo4" id="MJU-yF-Yrr"/>
+                        <outlet property="urlTextField" destination="viH-5Y-ksI" id="TVU-jF-94a"/>
+                        <segue destination="yGJ-xU-phB" kind="show" identifier="performSearch" id="3FY-6H-jZT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vVp-PB-IY0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3584" y="3"/>
+            <point key="canvasLocation" x="3582.608695652174" y="2.6785714285714284"/>
         </scene>
-        <!--View Controller-->
+        <!--Location Confirmation View Controller-->
         <scene sceneID="ZEa-hG-CVx">
             <objects>
-                <viewController id="yGJ-xU-phB" sceneMemberID="viewController">
+                <viewController id="yGJ-xU-phB" customClass="LocationConfirmationViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tS7-tD-UA1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="1Eh-xC-oXO">
+                                <rect key="frame" x="0.0" y="56" width="414" height="786"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TsT-Si-m3c">
+                                <rect key="frame" x="20" y="774" width="374" height="34"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Confirm">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="confirmAction:" destination="yGJ-xU-phB" eventType="touchUpInside" id="yK8-II-IYI"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="4w2-sr-2f8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottomMargin" secondItem="1Eh-xC-oXO" secondAttribute="bottom" constant="-34" id="Ht6-eR-6hL"/>
+                            <constraint firstItem="TsT-Si-m3c" firstAttribute="leading" secondItem="tS7-tD-UA1" secondAttribute="leadingMargin" id="Lhf-9U-kra"/>
+                            <constraint firstItem="1Eh-xC-oXO" firstAttribute="top" secondItem="4w2-sr-2f8" secondAttribute="top" id="SDr-Z1-FL1"/>
+                            <constraint firstItem="1Eh-xC-oXO" firstAttribute="centerX" secondItem="TsT-Si-m3c" secondAttribute="centerX" id="dnO-1w-M3b"/>
+                            <constraint firstItem="TsT-Si-m3c" firstAttribute="bottom" secondItem="4w2-sr-2f8" secondAttribute="bottom" id="kyE-yd-ytL"/>
+                            <constraint firstItem="1Eh-xC-oXO" firstAttribute="leading" secondItem="4w2-sr-2f8" secondAttribute="leading" id="qei-c7-8s9"/>
+                            <constraint firstItem="TsT-Si-m3c" firstAttribute="trailing" secondItem="tS7-tD-UA1" secondAttribute="trailingMargin" id="rIj-gF-znT"/>
+                            <constraint firstItem="TsT-Si-m3c" firstAttribute="top" secondItem="4w2-sr-2f8" secondAttribute="top" constant="718" id="z6h-dL-u2K"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3jo-bv-r5N"/>
+                    <connections>
+                        <outlet property="mapView" destination="1Eh-xC-oXO" id="pEv-8c-tcE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6We-9R-dMa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4358" y="3"/>
+            <point key="canvasLocation" x="4706" y="3"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="I5j-k7-HeD">
@@ -370,7 +457,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ERm-32-eyO"/>
+        <segue reference="wYh-YJ-AvF"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="icon_addpin" width="24" height="24"/>
@@ -378,6 +465,7 @@
         <image name="icon_mapview-deselected" width="75" height="50"/>
         <image name="icon_pin" width="24" height="24"/>
         <image name="icon_refresh" width="24" height="24"/>
+        <image name="icon_world" width="52" height="67"/>
         <image name="logo-u" width="62" height="62"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
