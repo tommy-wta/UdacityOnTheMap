@@ -53,6 +53,7 @@ class AddNewLocationViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "performSearch" {
             let confirmationVC = segue.destination as! LocationConfirmationViewController
+            confirmationVC.locationName = locationTextField.text
             confirmationVC.studentLocationInfo = createStudentLocationDataObject(studentCoordinate!)
             confirmationVC.mapCoordinate = studentCoordinate
         }

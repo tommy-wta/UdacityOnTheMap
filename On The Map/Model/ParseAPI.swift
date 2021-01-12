@@ -12,18 +12,17 @@ class ParseAPI {
     class func getStudentLocationUsingUrl(completion: @escaping([StudentLocationData]?, Error?) -> Void) {
         getParseRequestTask(url: UdacityAPI.Endpoints.studentLocationUrl.url, responseType: AllLocations.self) { (completionData, error) in
             if let locationData = completionData {
-                //print("location data output: " + String(locationData.results.count))
-                //print(locationData.results)
                 completion(locationData.results, nil)
             } else {
-                //print("Get location failed")
                 completion([], error)
             }
         }
     }
 
     class func addNewLocation(locationData: StudentLocationData, completion: @escaping (Bool, Error?) -> Void) {
-        let body = "{\"uniqueKey\": \"\(locationData.uniqueKey ?? "")\", \"firstName\": \"\(locationData.firstName)\", \"lastName\": \"\(locationData.lastName)\",\"mapString\": \"\(locationData.mapString)\", \"mediaURL\": \"\(locationData.mediaURL)\",\"latitude\": \(locationData.latitude), \"longitude\": \(locationData.longitude)}"
+        print("Invoked Add New Location Method")
+        print(locationData)
+        let body = "{\"uniqueKey\": \"\(locationData.uniqueKey ?? "")\", \"firstName\": \"\(locationData.firstName)\", \"lastName\": \"\(locationData.lastName)\",\"mapString\": \"\(locationData.mapString ?? "")\", \"mediaURL\": \"\(locationData.mediaURL ?? "")\",\"latitude\": \(locationData.latitude ?? 0.0), \"longitude\": \(locationData.longitude ?? 0.0)}"
         ParseAPI.postRequestTask(url: UdacityAPI.Endpoints.addNewLocation.url, responseType: PostNewStudentLocation.self, body: body, completion: {(completionResponse, error) in
             if let response = completionResponse {
                 if response.createdAt != nil {
