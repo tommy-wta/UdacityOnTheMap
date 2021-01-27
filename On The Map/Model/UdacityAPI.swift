@@ -156,8 +156,7 @@ class UdacityAPI {
 
         let task = session.dataTask(with: request) { data, response, error in
             if error != nil { // Handle error…
-                print("error != nil")
-                return
+                completion(nil, error)
             }
             guard let completedData = data else {
                 DispatchQueue.main.async {
