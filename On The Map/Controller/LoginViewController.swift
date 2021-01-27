@@ -14,12 +14,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
-    
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
 
     @IBAction func loginAction(_ sender: Any) {
         loginActionInProgress(status: true)
@@ -49,11 +43,8 @@ class LoginViewController: UIViewController {
     }
 
     func loginActionInProgress(status: Bool) {
-        if status {
-            activityIndicator.startAnimating()
-        } else {
-            activityIndicator.stopAnimating()
-        }
+        status ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
+
         emailTextfield.isEnabled = !status
         passwordTextfield.isEnabled  = !status
         loginButton.isEnabled = !status
