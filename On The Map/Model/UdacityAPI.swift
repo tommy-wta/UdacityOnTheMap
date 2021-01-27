@@ -32,7 +32,7 @@ class UdacityAPI {
             case .postAndDelete: return Endpoints.base + "/session"
             case .getPublicUserData: return Endpoints.base + "/users/" + Auth.key
             case .signUpUrl: return "https://auth.udacity.com/sign-up"
-            case .studentLocationUrl: return Endpoints.base + "/StudentLocation?limit=10&order=-updatedAt"
+            case .studentLocationUrl: return Endpoints.base + "/StudentLocation?limit=100&order=-updatedAt"
             case .addNewLocation : return Endpoints.base + "/StudentLocation"
             }
         }
