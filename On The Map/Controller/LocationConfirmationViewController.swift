@@ -27,8 +27,8 @@ class LocationConfirmationViewController: UIViewController, MKMapViewDelegate  {
         var mapAnnotation = MKPointAnnotation()
         mapAnnotation.coordinate = mapCoordinate!
         mapAnnotation.title = "Selected Location: \(locationName!)"
-        self.mapView.addAnnotation(mapAnnotation)
-        self.mapView.showAnnotations(self.mapView.annotations, animated: true)
+        mapView.addAnnotation(mapAnnotation)
+        mapView.showAnnotations(mapView.annotations, animated: true)
     }
 
     @IBAction func confirmAction(_ sender: Any) {

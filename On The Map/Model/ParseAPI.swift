@@ -12,9 +12,13 @@ class ParseAPI {
     class func getStudentLocationUsingUrl(completion: @escaping([StudentLocationData]?, Error?) -> Void) {
         getParseRequestTask(url: UdacityAPI.Endpoints.studentLocationUrl.url, responseType: AllLocations.self) { (completionData, error) in
             if let locationData = completionData {
-                completion(locationData.results, nil)
+                DispatchQueue.main.async {
+                    completion(locationData.results, nil)
+                }
             } else {
-                completion([], error)
+                DispatchQueue.main.async {
+                    completion([], error)
+                }
             }
         }
     }

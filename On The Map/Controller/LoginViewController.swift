@@ -14,12 +14,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
-    
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
 
     @IBAction func loginAction(_ sender: Any) {
         loginActionInProgress(status: true)
@@ -40,20 +34,18 @@ class LoginViewController: UIViewController {
             self.present(viewController, animated: false, completion: nil)
 
         } else {
-            loginActionInProgress(status: false)
-            let alertVC = UIAlertController(title: "Login Error", message: "Please Check Login Credentials", preferredStyle: .alert)
-            alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            present(alertVC, animated: true)
-
+            DispatchQueue.main.async{
+                self.loginActionInProgress(status: false)
+                let alertVC = UIAlertController(title: "Login Error", message: error?.localizedDescription, preferredStyle: .alert)
+                alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alertVC, animated: true)
+            }
         }
     }
 
     func loginActionInProgress(status: Bool) {
-        if status {
-            activityIndicator.startAnimating()
-        } else {
-            activityIndicator.stopAnimating()
-        }
+        status ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
+
         emailTextfield.isEnabled = !status
         passwordTextfield.isEnabled  = !status
         loginButton.isEnabled = !status

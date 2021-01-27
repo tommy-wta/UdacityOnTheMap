@@ -47,11 +47,7 @@ class UdacityAPI {
         postRequestTask(url: Endpoints.postAndDelete.url, responseType: LoginResponse.self, body: httpBody, completion: {(completionResponse, error) in
             if let response = completionResponse {
                 Auth.key = response.account.key
-                print("Auth Key")
-                //print(Auth.key)
                 Auth.sessionId = response.session.id
-                print("Auth Session")
-                //print(Auth.sessionId)
                 gettingUserData(completion: {(success, error) in
                     if success {
                         print("User data fetched")
@@ -156,8 +152,7 @@ class UdacityAPI {
 
         let task = session.dataTask(with: request) { data, response, error in
             if error != nil { // Handle error…
-                print("error != nil")
-                return
+                completion(nil, error)
             }
             guard let completedData = data else {
                 DispatchQueue.main.async {
