@@ -34,11 +34,12 @@ class LoginViewController: UIViewController {
             self.present(viewController, animated: false, completion: nil)
 
         } else {
-            loginActionInProgress(status: false)
-            let alertVC = UIAlertController(title: "Login Error", message: "Please Check Login Credentials", preferredStyle: .alert)
-            alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            present(alertVC, animated: true)
-
+            DispatchQueue.main.async{
+                self.loginActionInProgress(status: false)
+                let alertVC = UIAlertController(title: "Login Error", message: error?.localizedDescription, preferredStyle: .alert)
+                alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alertVC, animated: true)
+            }
         }
     }
 
