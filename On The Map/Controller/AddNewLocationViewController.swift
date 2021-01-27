@@ -13,6 +13,7 @@ class AddNewLocationViewController: UIViewController {
 
     var studentCoordinate: CLLocationCoordinate2D?
 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var urlTextField: UITextField!
 
@@ -23,13 +24,16 @@ class AddNewLocationViewController: UIViewController {
     }
 
     @IBAction func searchAction(_ sender: Any) {
+        searchActionInProgress(status: true)
         if (!locationTextField.text!.isEmpty) {
             CLGeocoder().geocodeAddressString(locationTextField.text!) { (placemarks, error) in
                 if let locationError = error {
+                    self.searchActionInProgress(status: false)
                     let alertVC = UIAlertController(title: error?.localizedDescription, message: "Location Error", preferredStyle: .alert)
                     alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                     self.present(alertVC, animated: true)
                 } else {
+                    self.searchActionInProgress(status: false)
                     var enteredLocation: CLLocation!
 
                     enteredLocation = placemarks?.first?.location
@@ -40,6 +44,7 @@ class AddNewLocationViewController: UIViewController {
                 }
             }
         } else {
+            searchActionInProgress(status: false)
             let alertVC = UIAlertController(title: "Missing Location", message: "Please enter a location", preferredStyle: .alert)
             alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alertVC, animated: true)
@@ -61,5 +66,12 @@ class AddNewLocationViewController: UIViewController {
 
     func createStudentLocationDataObject(_ coordinate: CLLocationCoordinate2D) -> StudentLocationData{
         return StudentLocationData(createdAt: "", firstName: UdacityAPI.Auth.firstName, lastName: UdacityAPI.Auth.lastName, latitude: coordinate.latitude, longitude: coordinate.longitude, mapString: locationTextField.text, mediaURL: urlTextField.text, objectId: UdacityAPI.Auth.objectId, uniqueKey: UdacityAPI.Auth.key, updatedAt: "")
+    }
+
+    func searchActionInProgress(status: Bool) {
+        status ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
+
+        locationTextField.isEnabled = !status
+        urlTextField.isEnabled  = !status
     }
 }
